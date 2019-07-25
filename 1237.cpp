@@ -2,6 +2,6 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	printf("");
+	printf("문제의 정답");
 	return 0;
 }
