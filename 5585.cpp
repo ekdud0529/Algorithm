@@ -2,20 +2,14 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	int n, cnt=0;
-	scanf("%d", &n);
-	n = 1000-n;
-	cnt += n/500;
-	n %= 500;
-	cnt += n/100;
-	n %= 100;
-	cnt += n/50;
-	n %= 50;
-	cnt += n/10;
-	n %= 10;
-	cnt += n/5;
-	n %= 5;
-	cnt += n;
+	int n[] = {500, 100, 50, 10, 5, 1}, num, cnt=0, i;
+	scanf("%d", &num);
+	num = 1000-num;
+	for(i=0;i<6;i++){
+		cnt += num/n[i];
+		num %= n[i];
+		if(num%n[i]==0) break;
+	}
 	printf("%d", cnt);
 	return 0;
 }
