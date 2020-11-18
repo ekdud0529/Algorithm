@@ -1,3 +1,4 @@
+//Top-down
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,6 +18,31 @@ int main(int argc, char** argv) {
 	while(t--){
 		scanf("%d", &n);
 		printf("%d\n", f(n));
+	}
+	return 0;
+}
+
+//Bottom-up
+#include <bits/stdc++.h>
+using namespace std;
+
+int sum[12];
+
+int main(int argc, char** argv) {
+	int t, n;
+	scanf("%d", &t);
+	
+	sum[1] = 1;
+	sum[2] = 2;
+	sum[3] = 4;
+	
+	for(int i=4; i<=11; i++){
+		sum[i] = sum[i-1]+sum[i-2]+sum[i-3];
+	}
+	
+	for(int i=0; i<t; i++){
+		scanf("%d", &n);
+		printf("%d\n", sum[n]);
 	}
 	return 0;
 }
