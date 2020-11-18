@@ -1,3 +1,4 @@
+// 1
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,5 +17,25 @@ int main(int argc, char** argv) {
 	}
 	
 	printf("%lld", b[n][0]+b[n][1]);
+	return 0;
+}
+
+// 2
+#include <bits/stdc++.h>
+using namespace std;
+
+long long b[91];
+
+int main(int argc, char** argv) {
+	int n;
+	scanf("%d", &n);
+	
+	b[1] = 1;
+	
+	for(int i=2; i<=n; i++){
+		b[i] = b[i-1]+b[i-2];
+	}
+	
+	printf("%lld", b[n]);
 	return 0;
 }
