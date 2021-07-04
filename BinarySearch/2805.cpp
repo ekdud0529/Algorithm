@@ -40,7 +40,6 @@ int main(int argc, char** argv) {
 			break;
 		}
 	}
-	
 	height = (sum>=m)?height:height-1;
 	cout << height;
 	
