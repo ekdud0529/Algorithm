@@ -17,3 +17,30 @@ int main(int argc, char** argv) {
 	}
 	return 0;
 }
+
+
+# 에라토스테네스의 체
+#include <bits/stdc++.h>
+using namespace std;
+
+bool num[1000001];
+
+int main(){
+	int n, m;
+	cin >> n >> m;
+	
+	num[1] = true;
+	for(int i=2; i<=m; i++){
+		if(num[i] == true) continue;
+		
+		for(int j=i+i; j<=m; j+=i){
+			num[j] = true;
+		}
+	}
+	
+	for(int i=n; i<=m; i++){
+		if(num[i] == false) cout << i << "\n";
+	}
+	
+	return 0;
+}
