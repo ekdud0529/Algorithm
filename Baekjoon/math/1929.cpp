@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
 }
 
 
-# 에라토스테네스의 체
+// 에라토스테네스의 체
 #include <bits/stdc++.h>
 using namespace std;
 
