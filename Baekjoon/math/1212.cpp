@@ -4,10 +4,10 @@ using namespace std;
 string eight[8] = {"000","001","010","011","100","101","110","111"};
 
 int main(int argc, char** argv) {
-	ios_base::sync_with_stdio(false);
+    ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 	
-	string s;
+    string s;
     cin >> s;
     bool start = true;
     if (s.length() == 1 && s[0]-'0' == 0) {
