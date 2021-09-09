@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool num[9];
 int a[9], n, m;
 
 void go(int ind, int start){
@@ -14,11 +13,8 @@ void go(int ind, int start){
 	}
 	
 	for(int j=start; j<=n; j++){
-		if(num[j]) continue;
 		a[ind] = j;
-		num[j] = true;
 		go(ind+1, j+1);
-		num[j] = false;
 	}
 }
 
