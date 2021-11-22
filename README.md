@@ -1,3 +1,3 @@
 vscode c++ 단축키
-make exe file : shift + Alt + b
-실행 : shift + Alt + R
+1. make exe file : Ctrl + Alt + b
+2. 실행 : Ctrl + Alt + R
