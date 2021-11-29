@@ -1,65 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, sum_min = 50000;
-int ability[20][20];
-bool member[20];
+int		n;
+int		min_ability = 2000;
+int		member[20][20];
+bool	check[20];
 
-int get_sum()
+int get_ability(bool ch)
 {
 	int sum = 0;
 	for(int i=0; i<n; i++)
 	{
-		for(int k=0; k<n; k++)
+		for(int k=i+1; k<n; k++)
 		{
-			if(i == k) continue;
-			if(member[i] && member[k])
+			if(check[i] == ch && check[k] == ch)
 			{
-				sum += ability[i][k];
-				sum += ability[k][k];
+				sum += (member[i][k] + member[k][i]);
 			}
 		}
 	}
 	return sum;
 }
 
-int get_other_sum()
-{
-	int sum = 0;
-	for(int i=0; i<n; i++)
-	{
-		for(int k=0; k<n; k++)
-		{
-			if(i == k) continue;
-			if(!member[i] && !member[k])
-			{
-				sum += ability[i][k];
-				sum += ability[k][k];
-			}
-		}
-	}
-	return sum;
-}
-
-void get_min(int cnt, int index)
+void get_min_ability(int cnt, int index)
 {
 	if(cnt == n/2)
 	{
-		int sum = get_sum();
-		int other_sum = get_other_sum();
-		int minus = (sum > other_sum)? sum-other_sum : other_sum-sum;
-		if(minus < sum_min)
+		int sum = get_ability(true);
+		int other_sum = get_ability(false);
+		if(min_ability > abs(sum - other_sum))
 		{
-			sum_min = minus;
+			min_ability = abs(sum - other_sum);
 		}
+		return ;
 	}
 
 	for(int i=index; i<n; i++)
 	{
-		if(member[i]) continue;
-		member[i] = true;
-		get_min(cnt+1, i);
-		member[i] = false;
+		if(check[i]) continue;
+		check[i] = true;
+		get_min_ability(cnt + 1, i);
+		check[i] = false;
 	}
 }
 
@@ -74,11 +55,11 @@ int main()
 	{
 		for(int k=0; k<n; k++)
 		{
-			cin >> ability[i][k];
+			cin >> member[i][k];
 		}
 	}
 
-	get_min(0, 0);
-	cout << sum_min;
+	get_min_ability(0, 0);
+	cout << min_ability;
 	return 0;
 }
