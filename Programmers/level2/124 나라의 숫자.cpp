@@ -20,7 +20,6 @@ string solution(int n) {
             num[i] += 3;
         }
     }
-    
     for(int i=num.size()-1; i>=0; i--)
     {
         if(i == num.size()-1 && num[i] == 0) continue;
