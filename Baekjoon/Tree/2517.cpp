@@ -73,7 +73,7 @@ int	main(void)
 	sort(player.begin(), player.end(), CmpIndex);
 	for (int i = 0; i < n; i++)
 	{
-		cout << player.first + 1 - getSum(1, player[i].second) << "\n";
+		cout << player[i].first + 1 - getSum(1, player[i].second) << "\n";
 		Update(player[i].second);
 	}
 	return (0);
