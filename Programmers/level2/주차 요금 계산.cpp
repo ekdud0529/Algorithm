@@ -43,12 +43,6 @@ void getFee(vector<int> fees)
                 f += fees[3];
         }
         fee[i].second = f;
-        int num = 0;
-        string car = fee[i].first;
-        for(char c : car)
-        {
-            num = (num * 10) + (c - '0');
-        }
     }
 }
 
