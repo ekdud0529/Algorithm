@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <map>
 using namespace std;
 
 bool check[26];
