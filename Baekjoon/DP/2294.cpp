@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
 using namespace std;
 
 int n, k;
@@ -20,7 +19,6 @@ int main(void)
 		dp[coin[i]] = 1;
 	}
 	dp[0] = 0;
-	
 	sort(coin, coin + n);
 	for (int i = 1; i <= k; i++)
 	{
