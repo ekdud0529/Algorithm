@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <queue>
+#include <algorithm>
+using namespace std;
+
+int n, m;
+int a, b;
+vector<pair<int, int>> bus[1001];
+int cost[1001];
+int road[1001];
+
+void Dijkstra(int start)
+{
+	priority_queue<pair<int, int>> q;
+
+	cost[start] = 0;
+	q.push({ 0, start });
+	while (!q.empty())
+	{
+		int node = q.top().second;
+		int dist = -q.top().first;
+		q.pop();
+		if (cost[node] < dist) continue;
+		for (int i = 0; i < bus[node].size(); i++)
+		{
+			int next = bus[node][i].first;
+			int mvCost = dist + bus[node][i].second;
+			if (mvCost < cost[next])
+			{
+				cost[next] = mvCost;
+				q.push({ -mvCost, next });
+				road[next] = node;
+			}
+		}
+	}
+}
+
+void PrintAnswer(void)
+{
+	int cnt = 0;
+	int node = b;
+	vector<int> ans;
+
+	cout << cost[b] << "\n";
+	do {
+		ans.push_back(node);
+		node = road[node];
+	} while (node != a);
+	ans.push_back(a);
+	cout << ans.size() << "\n";
+	reverse(ans.begin(), ans.end());
+	for (int node : ans)
+	{
+		cout << node << " ";
+	}
+}
+
+int main(void)
+{
+	cin >> n >> m;
+	for (int i = 1; i <= n; i++)
+	{
+		cost[i] = 100000001;
+	}
+	for (int i = 0; i < m; i++)
+	{
+		int a, b, cost;
+		cin >> a >> b >> cost;
+		bus[a].push_back({ b, cost });
+	}
+	cin >> a >> b;
+	Dijkstra(a);
+	PrintAnswer();
+	return (0);
+}
