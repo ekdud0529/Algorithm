@@ -8,12 +8,8 @@ class Solution {
             if(s.charAt(sIndex) == t.charAt(tIndex))
             {
                 sIndex++;
-                tIndex++;
             }
-            else
-            {
-                tIndex++;
-            }
+            tIndex++;
         }
         if(sIndex == s.length())
         {
