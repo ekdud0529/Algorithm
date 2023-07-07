@@ -13,7 +13,7 @@ class Solution {
             if (map.containsKey(survey[i].charAt(index)))
             {
                 map.put(survey[i].charAt(index),
-                        map.get(survey[i].charAt(index)) + getScore(index, choices[i]));
+                    map.get(survey[i].charAt(index)) + getScore(index, choices[i]));
             }
             else
             {
@@ -29,14 +29,8 @@ class Solution {
         int aScore = 0;
         int bScore = 0;
         
-        if (map.containsKey(a.charAt(0)))
-        {
-            aScore = map.get(a.charAt(0));
-        }
-        if (map.containsKey(b.charAt(0)))
-        {
-            bScore = map.get(b.charAt(0));
-        }
+        aScore = map.getOrDefault(a.charAt(0), 0);
+        bScore = map.getOrDefault(b.charAt(0), 0);
         if (aScore < bScore) return (b);
         return (a);
     }
