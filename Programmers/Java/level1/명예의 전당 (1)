@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int k, int[] score) {
+        int[] answer = new int[score.length];
+        
+        ArrayList<Integer> array = new ArrayList<Integer>();
+
+        for (int i=0; i<score.length; i++) {
+            array.add(score[i]);
+            Collections.sort(array, Collections.reverseOrder());
+            
+            if (array.size() < k) {
+                answer[i] = array.get(array.size() - 1);
+            }
+            else {
+                answer[i] = array.get(k-1);
+            }
+        }
+        return answer;
+    }
+}
