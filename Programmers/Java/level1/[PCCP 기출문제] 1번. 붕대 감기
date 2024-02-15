@@ -1,0 +1,29 @@
+class Solution {
+    public int solution(int[] bandage, int health, int[][] attacks) {
+        int answer = health;
+        int continu = 0;
+        int index = 0;
+        
+        for (int i=1; i<=attacks[attacks.length - 1][0]; i++) {
+            // 몬스터 공격
+            if (i == attacks[index][0]) {
+                continu = 0;
+                answer -= attacks[index][1];
+                index++;
+            }
+            else {
+                answer += bandage[1];
+                continu++;
+            }
+            // 연속 체력 성공?
+            if (continu == bandage[0]) {
+                answer += bandage[2];
+                continu = 0;
+            }
+            if (health < answer)
+                answer = health;
+            if (answer <= 0) return -1;
+        }
+        return answer;
+    }
+}
