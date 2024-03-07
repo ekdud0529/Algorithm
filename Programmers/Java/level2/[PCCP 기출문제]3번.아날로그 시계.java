@@ -4,7 +4,6 @@ class Solution {
         int cnt1 = getCnt(h1, m1, s1);
         int cnt2 = getCnt(h2, m2, s2);
         
-        
         answer = cnt2 - cnt1;
         if ((h1 == 0 || h1 == 12) && m1 == 0 && s1 == 0)
             answer++;
