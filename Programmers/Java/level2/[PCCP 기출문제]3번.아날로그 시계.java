@@ -8,8 +8,6 @@ class Solution {
         answer = cnt2 - cnt1;
         if ((h1 == 0 || h1 == 12) && m1 == 0 && s1 == 0)
             answer++;
-        System.out.println(cnt1);
-        System.out.println(cnt2);
         return answer;
     }
     
